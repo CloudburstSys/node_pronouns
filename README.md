@@ -56,6 +56,8 @@ Telling the module that you want to use plural pronouns will automatically chang
 The module exports functions that allow you to extend the list of pronouns. You must pass an array of arrays in the following format.
 
 `[subject, object, posessive determiner, posessive, reflexive]`
+
+This *adds* to the list of pronouns.
 ```javascript
 const pronouns = require("node_pronouns");
 const fs = require("fs");
