@@ -1,3 +1,9 @@
+const fs = require("fs");
+const StringModifier = require("./src/StringModifier");
+var pronouns = require("./resources/pronouns.json");
+
+const stringModifier = new StringModifier(pronouns);
+
 module.exports = (string, data) => {
 	if(Array.isArray(data)) {
 		// multiple
@@ -29,5 +35,12 @@ function multiple(pronounArray) {
 }
 
 module.exports.extendPronouns = (pronounArray) => {
-	// idk lmao
+	if(!Array.isArray(pronounArray)) throw new Error("PronounArray MUST be an array!");
+	if(!Array.isArray(pronounArray[0])) throw new Error("PronounArray must contain arrays");
+	
+	pronounArray.forEach(pronoun => {
+		pronouns.push(pronoun);
+	});
+	
+	return true;
 }
