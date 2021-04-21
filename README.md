@@ -53,11 +53,11 @@ The module automatically registers "they/them" as singular, so you must explicit
 Telling the module that you want to use plural pronouns will automatically change the reflexive pronoun suffix to "selves" instead of "self".
 
 ## Extending the list of pronouns.
-The module exports functions that allow you to extend the list of pronouns. You can either provide a json file containing an array of arrays or the array of arrays itself.
+The module exports functions that allow you to extend the list of pronouns. You must pass an array of arrays in the following format.
+
+`[subject, object, posessive determiner, posessive, reflexive]`
 ```javascript
 const pronouns = require("node_pronouns");
 const fs = require("fs");
-pronouns.extendPronouns(fs.readFileSync("./extendedPronouns.json"));
-// OR
 pronouns.extendPronouns([["xey", "xem", "xyr", "xyrs", "xemself"]]);
 ```
