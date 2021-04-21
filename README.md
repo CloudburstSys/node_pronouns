@@ -9,22 +9,38 @@ Execute `npm install LegoDevStudio/node_pronouns` in your project directory.
 Now you can try the examples below!
 
 ## Examples
-Singular she/her
+**Note: Do not confuse the .single() constructor for making the pronoun singular, it actually means that only 1 person is involved in the string you want to modify**
+
+Singular she/her, 1 person
 ```javascript
 const pronouns = require("node_pronouns");
-const pronoun = new pronouns.pronoun("she/her");
+const pronoun = new pronouns.single("she/her");
 
 console.log(pronoun("They are looking good today!"));
 // Output: "She is looking good today!"
 ```
-Plural she/her
+Plural she/her, 1 person
 ```javascript
 const pronouns = require("node_pronouns");
 // Passing "true" as the second argument to pronouns.pronoun forces the modifier to use plural pronouns and modify verbs as such.
-const pronoun = new pronouns.pronoun("she/her", true);
+const pronoun = new pronouns.single("she/her", true);
 
 console.log(pronoun("Ze is looking good today!"));
 // Output: "She are looking good today!"
+```
+Mixed, 4 people
+```javascript
+const pronouns = require("node_pronouns");
+const pronoun = new pronouns.multiple([["she/her"], ["e/em", true], ["they/them"], ["xe/xem", true]]);
+
+// Due to how multiple pronouns work, you cannot just use any pronoun you choose and expect the module to know what you mean.
+// Instead, You use the following format `{{ pronoun <number> }}`.
+// The pronoun can be any pronoun of your choice, as long as it makes sense gramatically
+// The number must equal the person you want to refer to *starting from 0*, so the first person in the array would be `{{ pronoun 0 }}`
+console.log(pronoun("\"Hey! Did you see Becky yesterday?\"\n\"Yeah I was outside with {{ them 0 }}, the others joined us as well. Emmy was talking about how {{ she 1 }} was going to get a dog later this week and Owen mentioned how {{ he 2 }} wanted a dog as well. Jane was having a bad day though, so {{ they 3 }} was quiet.\"\n\"Ah I see, wish I could of come along, but ya know, exams and stuff\""));
+// Output: "Hey! Did you see Becky yesterday?"
+//         "Yeah I was outside with her, the others joined us as well. Emmy was talking about how e were going to get a dog later this week and Own mentioned how they wanted a dog as well. Jane was having a bad day though, so xe were quiet."
+//         "Ah I see, wish I could of come along, but ya know, exams and stuff"
 ```
 The module automatically registers "they/them" as singular, so you must explicitly tell the module that you want the plural version.
 
