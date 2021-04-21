@@ -45,8 +45,16 @@ console.log(pronoun("\"Hey! Did you see Becky yesterday?\"\n\"Yeah I was outside
 You can also minify the code by calling pronouns directly as a function
 ```javascript
 const pronouns = require("node_pronouns");
-console.log(pronouns("They are so cute!", ["she/her"]);
+console.log(pronouns("They are so cute!", "she/her");
 // Output: "She is so cute!"
+```
+or for multiple people
+```javascript
+const pronouns = require("node_pronouns");
+console.log(pronouns("\"Did you see Katelyn yesterday? {{ She 0 }} didn't look well. I'm worried for {{ them 0 }}!\"\n\"Yeah I did and yeah {{ he 0 }} didn't look well, I've heard that {{ eir 0 }} sister, Lucy, is trying {{ her 1 }} best to help {{ nem 0 }} out.\"\n\"Aww bless {{ their 1 }} little socks off that's is so cute!\"", [["she/her"], ["they/them"]]));
+// Output: "Did you see Katelyn yesterday? She didn't look well. I'm worried for her!"
+//         "Yeah I did and yeah she didn't look well, I've heard that her sister, Lucy is trying their best to help her out."
+//         "Aww bless their little socks off that is so cute!"
 ```
 The module automatically registers "they/them" as singular, so you must explicitly tell the module that you want the plural version.
 
