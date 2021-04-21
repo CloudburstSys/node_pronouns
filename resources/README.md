@@ -3,8 +3,7 @@ This directory contains all the .json resources the module uses. This includes t
 
 ## `pronouns.json`
 A json file containing an array of arrays. This stores pronouns.
-Format: `[singular, object, posessive determiner, posessive, reflexive, plural?]`
-`plural?` basically tells the module whether to automatically change the verbs to plural.
+Format: `[singular, object, posessive determiner, posessive, reflexive]`
 
 ## `verbs.json`
 A json file containing a object of strings, This stores verbs and their plural equivilent
