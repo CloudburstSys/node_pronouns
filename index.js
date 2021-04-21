@@ -1,18 +1,17 @@
-module.exports = (string, data, plural = false) => {
+module.exports = (string, data) => {
 	if(Array.isArray(data)) {
 		// multiple
 		return new multiple(data)(string);
 	} else {
 		// single
-		return new single(data, plural)(string);
+		return new single(data)(string);
 	}
 }
 
-function single(pronoun, plural = false) {
-	if(!new.target) return new single(pronoun, plural);
+function single(pronoun) {
+	if(!new.target) return new single(pronoun);
 	
 	this.pronoun = pronoun;
-	this.isPlural = plural;
 	
 	return (string) => {
 		// do stuff lol
@@ -22,13 +21,7 @@ function single(pronoun, plural = false) {
 function multiple(pronounArray) {
 	if(!new.target) return new multiple(pronounArray);
 	
-	this.pronouns = [];
-	this.plural = [];
-	
-	pronounArray.forEach(pronoun => {
-		this.pronouns.push(pronoun[0]);
-		this.plural.push(pronoun[1] == undefined ? false : pronoun[1]);
-	});
+	this.pronouns = pronounArray;
 	
 	return (string) => {
 		// do stuff lol
