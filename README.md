@@ -42,6 +42,22 @@ console.log(pronoun("\"Hey! Did you see Becky yesterday?\"\n\"Yeah I was outside
 //         "Yeah I was outside with her, the others joined us as well. Emmy was talking about how e were going to get a dog later this week and Own mentioned how they wanted a dog as well. Jane was having a bad day though, so xe were quiet."
 //         "Ah I see, wish I could of come along, but ya know, exams and stuff"
 ```
+You can also minify the code by calling pronouns directly as a function
+```javascript
+const pronouns = require("node_pronouns");
+console.log(pronouns("They are so cute!", ["she/her"]);
+// Output: "She is so cute!"
+```
 The module automatically registers "they/them" as singular, so you must explicitly tell the module that you want the plural version.
 
 Telling the module that you want to use plural pronouns will automatically change the reflexive pronoun suffix to "selves" instead of "self".
+
+## Extending the list of pronouns.
+The module exports functions that allow you to extend the list of pronouns. You can either provide a json file containing an array of arrays or the array of arrays itself.
+```javascript
+const pronouns = require("node_pronouns");
+const fs = require("fs");
+pronouns.extendPronouns(fs.readFileSync("./extendedPronouns.json"));
+// OR
+pronouns.extendPronouns([["xey", "xem", "xyr", "xyrs", "xemself"]]);
+```
