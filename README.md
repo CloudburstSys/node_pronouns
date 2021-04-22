@@ -14,7 +14,8 @@ she/her, 1 person
 const pronouns = require("node_pronouns");
 const pronoun = new pronouns.single("she/her");
 
-console.log(pronoun("He is looking good today!"));
+// You must surround the pronouns you want to change in `{{ <pronoun> }}` or the module won't know the difference between a pronoun or a regular word.
+console.log(pronoun("{{ He }} is looking good today!"));
 // Output: "She is looking good today!"
 ```
 he/him, 1 person
@@ -22,7 +23,7 @@ he/him, 1 person
 const pronouns = require("node_pronouns");
 const pronoun = new pronouns.single("he/him");
 
-console.log(pronoun("Ze is looking good today!"));
+console.log(pronoun("{{ Ze }} is looking good today!"));
 // Output: "He is looking good today!"
 ```
 Mixed, 4 people
@@ -42,7 +43,7 @@ console.log(pronoun("\"Hey! Did you see Becky yesterday?\"\n\"Yeah I was outside
 You can also minify the code by calling pronouns directly as a function
 ```javascript
 const pronouns = require("node_pronouns");
-console.log(pronouns("They is so cute!", "she/her");
+console.log(pronouns("{{ They }} is so cute!", "she/her");
 // Output: "She is so cute!"
 ```
 or for multiple people
