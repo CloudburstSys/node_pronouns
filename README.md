@@ -12,7 +12,7 @@ Now you can try the examples below!
 she/her, 1 person
 ```javascript
 const pronouns = require("node_pronouns");
-const pronoun = new pronouns.single("she/her");
+const pronoun = pronouns.single("she/her");
 
 // You must surround the pronouns you want to change in `{{ <pronoun> }}` or the module won't know the difference between a pronoun or a regular word.
 console.log(pronoun("{{ He }} is looking good today!"));
@@ -21,7 +21,7 @@ console.log(pronoun("{{ He }} is looking good today!"));
 he/him, 1 person
 ```javascript
 const pronouns = require("node_pronouns");
-const pronoun = new pronouns.single("he/him");
+const pronoun = pronouns.single("he/him");
 
 console.log(pronoun("{{ Ze }} is looking good today!"));
 // Output: "He is looking good today!"
@@ -29,7 +29,7 @@ console.log(pronoun("{{ Ze }} is looking good today!"));
 Mixed, 4 people
 ```javascript
 const pronouns = require("node_pronouns");
-const pronoun = new pronouns.multiple(["she/her", "e/em", "they/them", "xe/xem"]);
+const pronoun = pronouns.multiple(["she/her", "e/em", "they/them", "xe/xem"]);
 
 // Due to how multiple pronouns work, you cannot just use any pronoun you choose and expect the module to know what you mean.
 // Instead, You use the following format `{{ pronoun <number> }}`.
