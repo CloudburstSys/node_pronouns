@@ -11,28 +11,27 @@ function format(string) {
   });
   
   for(var i = 0; i<data.length; i++) {
-    str = str.replaceAll("{"+i+"}", data[i]);
+    str = replaceAll(str, "{"+i+"}", data[i]);
   }
   
   return str;
-}
-
-function replaceAllArray(string, initialArray, change) {
-	let str = string;
-	
-	initialArray.forEach(initial => {
-		str = replaceAll(str, initial, change);
-	});
-	
-	return str;
 }
 
 function replaceAllArrayWithFormat(string, formatString, initialArray, change) {
 	let str = string;
 	
 	initialArray.forEach(initial => {
-		str = replaceAll(str, format(formatString, initial), change);
+		if(initial.source.charAt(0) == initial.source.charAt(0).toUpperCase()) {
+			str = replaceAll(str, format(formatString, initial.source), change.charAt(0).toUpperCase() + change.slice(1));
+		}else{
+			str = replaceAll(str, format(formatString, initial.source), change);
+		}
 	});
 	
 	return str;
 }
+
+exports.replaceAll = replaceAll;
+exports.format = format;
+exports.replaceAllArray = replaceAllArray;
+exports.replaceAllArrayWithFormat = replaceAllArrayWithFormat;
