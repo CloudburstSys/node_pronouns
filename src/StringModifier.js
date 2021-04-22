@@ -10,19 +10,33 @@ class StringModifier {
 		
 		pronouns.forEach(pronoun => {
 			this.subjects.push(pronoun[0]);
-			this.objects.push(pronoun[1]);
-			this.posessiveDeterminer.push(pronoun[2]);
-			this.posessive.push(pronoun[3]);
-			this.reflexive.push(pronoun[4]);
+			this.objects.push(pronouns[1]);
+			this.posessiveDeterminer.push(pronouns[2]);
+			this.posessive.push(pronouns[3]);
+			this.reflexive.push(pronouns[4]);
+			
+			// Hacky solution to case stuff
+			this.subjects.push(pronoun[0].charAt(0).toUpperCase() + pronoun[0].slice(1));
+			this.objects.push(pronoun[1].charAt(0).toUpperCase() + pronoun[1].slice(1));
+			this.posessiveDeterminer.push(pronoun[2].charAt(0).toUpperCase() + pronoun[2].slice(1));
+			this.posessive.push(pronoun[3].charAt(0).toUpperCase() + pronoun[3].slice(1));
+			this.reflexive.push(pronoun[4].charAt(0).toUpperCase() + pronoun[4].slice(1));
 		});
 	}
 	
 	addPronoun(pronounSet) {
 		this.subjects.push(pronoun[0]);
-		this.objects.push(pronoun[1]);
-		this.posessiveDeterminer.push(pronoun[2]);
-		this.posessive.push(pronoun[3]);
-		this.reflexive.push(pronoun[4]);
+		this.objects.push(pronouns[1]);
+		this.posessiveDeterminer.push(pronouns[2]);
+		this.posessive.push(pronouns[3]);
+		this.reflexive.push(pronouns[4]);
+		
+		// Hacky solution to case stuff
+		this.subjects.push(pronoun[0].charAt(0).toUpperCase() + pronoun[0].slice(1));
+		this.objects.push(pronoun[1].charAt(0).toUpperCase() + pronoun[1].slice(1));
+		this.posessiveDeterminer.push(pronoun[2].charAt(0).toUpperCase() + pronoun[2].slice(1));
+		this.posessive.push(pronoun[3].charAt(0).toUpperCase() + pronoun[3].slice(1));
+		this.reflexive.push(pronoun[4].charAt(0).toUpperCase() + pronoun[4].slice(1));
 	}
 	
 	addPronouns(pronounArray) {
