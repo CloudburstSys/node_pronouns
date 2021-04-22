@@ -7,30 +7,36 @@ const stringModifier = new StringModifier(pronouns);
 module.exports = (string, data) => {
 	if(Array.isArray(data)) {
 		// multiple
-		return new multiple(data)(string);
+		return multiple(data)(string);
 	} else {
 		// single
-		return new single(data)(string);
+		return single(data)(string);
 	}
 }
 
 function single(pronoun) {
-	if(!new.target) return new single(pronoun);
-	
-	this.pronoun = pronoun;
+	this.pronoun = null;
+
+	pronouns.forEach(pronounSet => {
+		if(pronounSet.join("/").startsWith(pronoun)) this.pronoun = pronounSet;
+	});
 	
 	return (string) => {
-		// do stuff lol
+		return stringModifier.modifySingle(string, this.pronoun);
 	}
 }
 
-function multiple(pronounArray) {
-	if(!new.target) return new multiple(pronounArray);
+function multiple(pronounArray) {	
+	this.pronouns = [];
 	
-	this.pronouns = pronounArray;
-	
+	pronounArray.forEach(pronoun => {
+		pronouns.forEach(pronounSet => {
+			if(pronounSet.join("/").startsWith(pronoun)) this.pronouns.push(pronounSet);
+		})
+	});
+
 	return (string) => {
-		// do stuff lol
+		return stringModifier.modifyMultiple(string, this.pronouns);
 	}
 }
 
@@ -41,6 +47,11 @@ module.exports.extendPronouns = (pronounArray) => {
 	pronounArray.forEach(pronoun => {
 		pronouns.push(pronoun);
 	});
+
+	stringModifier.addPronouns(pronounArray);
 	
 	return true;
 }
+
+module.exports.single = single;
+module.exports.multiple = multiple;
