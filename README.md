@@ -64,6 +64,5 @@ The module exports functions that allow you to extend the list of pronouns. You 
 This *adds* to the list of pronouns.
 ```javascript
 const pronouns = require("node_pronouns");
-const fs = require("fs");
 pronouns.extendPronouns([["xey", "xem", "xyr", "xyrs", "xemself"]]);
 ```
