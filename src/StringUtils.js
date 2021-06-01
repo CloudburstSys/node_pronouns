@@ -33,5 +33,4 @@ function replaceAllArrayWithFormat(string, formatString, initialArray, change) {
 
 exports.replaceAll = replaceAll;
 exports.format = format;
-exports.replaceAllArray = replaceAllArray;
 exports.replaceAllArrayWithFormat = replaceAllArrayWithFormat;
