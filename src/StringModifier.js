@@ -90,27 +90,22 @@ class StringModifier {
 				switch (j) {
 					case 0:
 						// Subject
-						console.log(this.subjects[0]);
 						result = replaceAllArrayWithFormat(result, template, this.subjects, pronounSet[0]);
 						break;
 					case 1:
 						// Object
-						console.log(this.objects);
 						result = replaceAllArrayWithFormat(result, template, this.objects, pronounSet[1]);
 						break;
 					case 2:
 						// Posessive Determiner
-						console.log(this.posessiveDeterminer);
 						result = replaceAllArrayWithFormat(result, template, this.posessiveDeterminer, pronounSet[2]);
 						break;
 					case 3:
 						// Posessive
-						console.log(this.posessive);
 						result = replaceAllArrayWithFormat(result, template, this.posessive, pronounSet[3]);
 						break;
 					case 4:
 						// Reflexive
-						console.log(this.reflexive);
 						result = replaceAllArrayWithFormat(result, template, this.reflexive, pronounSet[4]);
 						break;
 					default:
