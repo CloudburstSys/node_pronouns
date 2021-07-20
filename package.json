@@ -1,6 +1,6 @@
 {
-  "name": "@legodev/node_pronouns",
-  "version": "1.0.0",
+  "name": "node_pronouns",
+  "version": "1.0.1",
   "description": "A node.js module which modifies sentences to use different pronouns.",
   "main": "index.js",
   "scripts": {

@@ -2,9 +2,7 @@
 A node.js module which modifies sentences to use different pronouns.
 
 ## Installation instructions
-Currently this module is not on npm, so you must tell npm to explicitly get the module from github.
-
-Execute `npm install LegoDevStudio/node_pronouns` in your project directory.
+This module is available on NPM, just execute `npm install node_pronouns` in your project directory.
 
 Now you can try the examples below!
 
