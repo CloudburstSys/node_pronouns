@@ -1,5 +1,5 @@
 {
-  "name": "node_pronouns",
+  "name": "@legodev/node_pronouns",
   "version": "1.0.0",
   "description": "A node.js module which modifies sentences to use different pronouns.",
   "main": "index.js",
@@ -12,14 +12,14 @@
   },
   "keywords": [
     "pronouns",
-	"string",
-	"modification"
+    "string",
+    "modification"
   ],
   "author": "LegoDev <me@legodev.com> (https://www.legodev.com)",
   "license": "AGPL-3.0-only",
   "bugs": {
     "url": "https://github.com/LegoDevStudio/node_pronouns/issues",
-	"email": "npm-issues@legodev.com"
+    "email": "npm-issues@legodev.com"
   },
   "homepage": "https://github.com/LegoDevStudio/node_pronouns#readme",
   "dependencies": {}
