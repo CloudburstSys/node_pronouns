@@ -1,5 +1,6 @@
 # node_pronouns
 A node.js module which modifies sentences to use different pronouns.
+**NOTE: While this project is archived, that is simply because the codebase is simple enough to not need active maintaining.**
 
 ## Installation instructions
 This module is available on NPM, just execute `npm install node_pronouns` in your project directory.
